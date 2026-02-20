@@ -124,12 +124,19 @@ function runTargetScript() {
                                     } else { Ext.getBody().unmask(); }
                                 };
                                 checkData();
-                            } catch(e) { Ext.getBody().unmask(); console.error(e); }
-                        },
-                        failure: function() { Ext.getBody().unmask(); }
-                    });
-                } else {
-                    alert('Lütfen bir kayıt seçin!');
+                            } catch (e) { 
+                                Ext.getBody().unmask(); 
+                                console.error("Hata oluştu:", e); 
+                            } 
+                        }, 
+                        failure: function () { 
+                            Ext.getBody().unmask(); 
+                            console.error("Sunucu hatası."); 
+                        } 
+                    }); 
+                } else { 
+                    console.warn("Hasta seçilmedi."); 
+                    alert("Lütfen listeden bir hasta seçin.");
                 }
             } catch (err) {
                 console.error('Script Hatası:', err);
